@@ -100,14 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let gallery = new SimpleLightbox('.gallery-item a', {
         captions: true,
+        captionsData: 'alt',
         captionDelay: 250,
     });
-    // gallery.on('open.simplelightbox', () => {
-    //   console.log('OPEN MODAL');
-    // });
-    // gallery.on('close.simplelightbox', () => {
-    //   console.log('CLOSE MODAL');
-    // }
 });
 
 
