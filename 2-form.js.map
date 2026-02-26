@@ -1,1 +1,1 @@
-{"version":3,"file":"2-form.js","sources":["../src/js/2-form.js"],"sourcesContent":["console.log(\"form\");\n"],"names":[],"mappings":"wFAAA,QAAQ,IAAI,MAAM"}
+{"version":3,"file":"2-form.js","sources":["../src/js/2-form.js"],"sourcesContent":["console.log(\"form\");\nfunction foo() {\n    console.log('This is a function!');\n}\nconsole.log(JSON.stringify(foo));"],"names":["foo"],"mappings":"wFAAA,QAAQ,IAAI,MAAM,EAClB,SAASA,GAAM,CACX,QAAQ,IAAI,qBAAqB,CACrC,CACA,QAAQ,IAAI,KAAK,UAAUA,CAAG,CAAC"}
