@@ -91,10 +91,7 @@ function galleryTemplate(items) {
   return items.map(galleryItemTemplate).join('\n');
 };
 
-
-document.addEventListener('DOMContentLoaded', () => {
-   
-    const markup = galleryTemplate(images);
+ const markup = galleryTemplate(images);
 
     refs.galleryEl.insertAdjacentHTML("beforeend", markup);
     
@@ -103,11 +100,4 @@ document.addEventListener('DOMContentLoaded', () => {
         captionsData: 'alt',
         captionDelay: 250,
     });
-});
-
-
- 
-refs.galleryEl.addEventListener('click', (event) => {
-    event.preventDefault();
-});
 
