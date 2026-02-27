@@ -5,8 +5,8 @@ const formEl = document.querySelector('form');
 formEl.addEventListener('input', (e) => {
     const formData = new FormData(formEl);
     const obj = {
-        email: formData.get('email'),
-        message: formData.get('message'),
+        email: formData.get('email').trim(),
+        message: formData.get('message').trim(),
     }
     saveToolS(STORAGE_KEY, obj);
 });
