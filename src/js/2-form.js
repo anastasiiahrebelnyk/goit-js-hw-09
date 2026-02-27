@@ -1,20 +1,24 @@
 const STORAGE_KEY = "feedback-form-state";
 
-const formEl = document.querySelector('form');
+const formEl = document.querySelector('.feedback-form');
+
+let formData = { email: '', message: '' };
+
 
 formEl.addEventListener('input', (e) => {
-    const formData = new FormData(formEl);
-    const obj = {
-        email: formData.get('email').trim(),
-        message: formData.get('message').trim(),
-    }
-    saveToolS(STORAGE_KEY, obj);
+    const helper = new FormData(formEl);
+  formData.email = helper.get('email').trim();
+  formData.message = helper.get('message').trim();
+  
+  console.log(formData);
+  
+    saveToolS(STORAGE_KEY, formData);
 });
 
 document.addEventListener('DOMContentLoaded', e => {
-    const userForm = loadFromLS(STORAGE_KEY, {});
-    formEl.elements.email.value = userForm.email || '';
-    formEl.elements.message.value = userForm.message || '';
+    formData = loadFromLS(STORAGE_KEY, {});
+    formEl.elements.email.value = formData.email || '';
+    formEl.elements.message.value = formData.message || '';
 });
 
 formEl.addEventListener('submit', e => {
@@ -24,21 +28,15 @@ formEl.addEventListener('submit', e => {
 
     };
 
-    const formData = new FormData(formEl);
-    const obj = {
-        email: formData.get('email'),
-        message: formData.get('message'),
-    }
-    console.log(obj);
+    const helper = new FormData(formEl);
+  formData.email = helper.get('email');
+      formData.message = helper.get('message');
     
-
-
-
     localStorage.removeItem(STORAGE_KEY);
-    formEl.reset();
+  formEl.reset();
+  formData.email = '';
+  formData.message ='';
 });
-
-
 
 
 
@@ -57,3 +55,4 @@ function loadFromLS(key, defaultValue) {
     return jsonData ?? defaultValue;
   }
 }
+
