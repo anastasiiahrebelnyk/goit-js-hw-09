@@ -1,11 +1,10 @@
 const STORAGE_KEY = "feedback-form-state";
 
-const formEl = document.querySelector('.feedback-form');
-
 let formData = { email: '', message: '' };
 
- document.addEventListener('DOMContentLoaded', e => {
-    formData = loadFromLS(STORAGE_KEY, {});
+document.addEventListener('DOMContentLoaded', e => {
+   const formEl = document.querySelector('.feedback-form');
+    formData = loadFromLS(STORAGE_KEY, {email: '', message: ''});
     formEl.elements.email.value = formData.email || '';
     formEl.elements.message.value = formData.message || '';
  
@@ -24,7 +23,7 @@ let formData = { email: '', message: '' };
  
   formEl.addEventListener('submit', e => {
     e.preventDefault();
-    if (formEl.elements.email.value === "" || formEl.elements.message.value === "") {
+    if (formData.email === "" || formData.message === "") {
       return alert('Fill please all fields');
 
     };
